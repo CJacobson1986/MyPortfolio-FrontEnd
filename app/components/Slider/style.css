@@ -1,0 +1,34 @@
+.slider {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  user-select: none;
+}
+
+.slideImage {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+}
+
+.slideAnimation {
+  animation-name: fadeIn;
+  animation-duration: 5s;
+  animation-iteration-count:infinite;
+}
+
+@keyframes fadeIn {
+  from{
+    opacity: 0
+  }
+  to{
+    opacity: .4
+  }
+}
