@@ -22,14 +22,9 @@ export default class Slider extends React.PureComponent {
 
   componentDidMount() {
   this.autoSlide();
-  this.setAnimation();
-  }
-
-  setAnimation =() => {
   this.setState({
     slideStyle: "slideImage slideAnimation"
     });
-  var _this=this;
   }
 
   renderImage = () => {
@@ -68,7 +63,7 @@ export default class Slider extends React.PureComponent {
   clearInterval(this.state.theInterval);
   let interval = setInterval(function() {
     _this.nextImage();
-  }, 5000);
+  }, 15000);
   this.setState({
     theInterval: interval,
   })

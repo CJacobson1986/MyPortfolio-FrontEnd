@@ -1,1 +1,54 @@
 /* MenuButton Styles */
+.navBar {
+  display:flex;
+  flex-direction:column;
+  background: rgba(0,0,0,0);
+  background-size: cover;
+  width:auto;
+  justify-content:space-between;
+  align-items:right;
+  text-align: center;
+  overflow:auto;
+  z-index: 2;
+  position: absolute;
+  margin-top: 5vh;
+
+}
+
+.siteName {
+  width:50%;
+  font-size:2em;
+  margin-left:15px;
+  font-variant:small-caps;
+  color:#FFFFFF;
+  font-family: 'Roboto Slab', serif;
+    -webkit-text-stroke: .5px grey;
+}
+
+.nav {
+  width:50%;
+  display:flex;
+  flex-direction:row;
+  justify-content:flex-end;
+  margin-right:15px;
+}
+
+.navButton {
+  color:#000000;
+  text-decoration: none;
+  font-weight:bold;
+  font-variant: small-caps;
+  margin-right:15px;
+  font-size: 2.2em;
+  font-family: 'Josefin Sans', sans-serif;
+    -webkit-text-stroke: .6px #dbdbdb;
+}
+
+.menuIcon {
+  height: 5vh;
+  width: 5%;
+  overflow:auto;
+  z-index: 2;
+  position: absolute;
+  flex-direction: column;
+}

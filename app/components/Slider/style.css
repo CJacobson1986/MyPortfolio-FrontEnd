@@ -20,15 +20,18 @@
 
 .slideAnimation {
   animation-name: fadeIn;
-  animation-duration: 5s;
+  animation-duration: 15s;
   animation-iteration-count:infinite;
 }
 
 @keyframes fadeIn {
-  from{
+  0% {
     opacity: 0
   }
-  to{
+  50%{
     opacity: .4
+  }
+  100% {
+    opacity:0
   }
 }

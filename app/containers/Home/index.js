@@ -11,14 +11,18 @@ import './style.css';
 import './styleM.css';
 
 import Slider from 'components/Slider';
+import MenuButton from 'components/MenuButton'
 
 export default class Home extends React.PureComponent {
+
   render() {
     return (
       <div className="container">
-        <Helmet title="Home" meta={[ { name: 'description', content: 'Description of Home' }]}/>
-        <Slider/>
-        <div className="VerticalOverlay"></div>
+        <Helmet title="Efficient Designing" meta={[ { name: 'description', content: 'Description of Home' }]}/>
+        <MenuButton ref="menu"/>
+        <div onClick={() => this.refs.menu.handleMenu()}>
+        <Slider />
+        </div>
       </div>
     );
   }

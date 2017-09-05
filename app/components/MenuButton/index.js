@@ -8,6 +8,9 @@ import React from 'react';
 
 import './style.css';
 import './styleM.css';
+import { Link } from 'react-router';
+
+import Bars from 'react-icons/lib/fa/bars';
 
 export default class MenuButton extends React.PureComponent {
   constructor() {
