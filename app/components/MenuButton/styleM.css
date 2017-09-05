@@ -1,1 +1,6 @@
 /* MenuButton Mobile Styles */
+@media(max-width:425px) {
+  .navButton{
+    font-size: 1.5em;
+  }
+}

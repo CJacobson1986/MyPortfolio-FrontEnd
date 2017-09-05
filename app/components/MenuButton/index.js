@@ -33,6 +33,12 @@ export default class MenuButton extends React.PureComponent {
       })
     }
   }
+
+  closeMenu = () => {
+    this.setState({
+      menuOpen:false
+    })
+  }
   renderMenu() {
     if(this.state.menuOpen === true) {
       return(
@@ -49,6 +55,7 @@ export default class MenuButton extends React.PureComponent {
       <div>
       <Bars className="menuIcon" onClick={this.handleMenu}/>
       {this.renderMenu()}
+      <header className="pageTitle">Full Stack Web Development</header>
       </div>
     );
   }
