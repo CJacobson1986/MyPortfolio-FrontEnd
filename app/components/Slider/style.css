@@ -19,7 +19,7 @@
 
 .slideAnimation {
   animation-name: fadeIn;
-  animation-duration: 15s;
+  animation-duration: 12s;
   animation-iteration-count:infinite;
   z-index: 1;
 }
@@ -28,7 +28,10 @@
   0% {
     opacity: 0
   }
-  50%{
+  35% {
+    opacity: .2
+  }
+  70%{
     opacity: .4
   }
   100% {
