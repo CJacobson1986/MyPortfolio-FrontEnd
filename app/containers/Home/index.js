@@ -18,7 +18,7 @@ export default class Home extends React.PureComponent {
   render() {
     return (
       <div className="container">
-        <Helmet title="Effictive Web Design" meta={[ { name: 'description', content: 'Description of Home' }]}/>
+        <Helmet title="Effective Web Design" meta={[ { name: 'description', content: 'Description of Home' }]}/>
         <MenuButton ref="menu"/>
         <div onClick={() => this.refs.menu.closeMenu()}>
         <Slider />
