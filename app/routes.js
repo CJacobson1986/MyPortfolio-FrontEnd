@@ -19,6 +19,15 @@ export default function createRoutes() {
        },
      },
      {
+      path: '/ForumPage',
+      name: 'forumpage',
+      getComponent(nextState, comMod) {
+        import('containers/ForumPage')
+          .then(loadModule(comMod))
+          .catch(errorLoading);
+      },
+    },
+     {
       path: '*',
       name: 'notfound',
       getComponent(nextState, comMod) {
