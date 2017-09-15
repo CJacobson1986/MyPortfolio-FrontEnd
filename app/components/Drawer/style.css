@@ -5,9 +5,11 @@
   width: 80%;
   height: 35vh;
   position: fixed;
+  bottom: 0;
   align-items: center;
-  background: #282C34;
+  background: #blue;
 }
+
 .renuiDrawerContainer {
 
 }

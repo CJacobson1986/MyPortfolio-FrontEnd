@@ -32,7 +32,7 @@ export default class Drawer extends React.PureComponent {
     })
     .then(function(json) {
       this.setState({
-        topics:json.topics
+        channels:json.channels
       })
     }.bind(this))
   };

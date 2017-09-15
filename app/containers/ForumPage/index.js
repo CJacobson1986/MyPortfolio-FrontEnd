@@ -58,8 +58,8 @@ export default class ForumPage extends React.PureComponent {
       <div className="container">
         <Helmet title="ForumPage" meta={[ { name: 'description', content: 'A forum for free events in Augusta!' }]}/>
 
-        <navBar className="DesktopNavBar">
-          <Link className="SiteTitle" to="/ForumPage">
+        <navBar className="desktopNavBar">
+          <Link className="siteTitle" to="/ForumPage">
             <header>Free Fun in Augusta
             </header>
           </Link>
@@ -105,7 +105,7 @@ export default class ForumPage extends React.PureComponent {
         </a>
         <Drawer open={this.state.openBottomDrawer} onClose={this.handleBottomDrawer} bottom>
         </Drawer>
-        <div className="TopicEntries">
+        <div className="topicEntries">
           {this.state.topics.map((t, i) => (
             <p>{t.topicTitle}</p>
           ))}
