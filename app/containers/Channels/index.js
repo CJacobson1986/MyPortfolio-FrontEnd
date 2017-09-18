@@ -4,24 +4,73 @@
  *
  */
 
-import React from 'react';
-import Helmet from 'react-helmet';
+ import React from 'react';
+ import Helmet from 'react-helmet';
+ import {Link} from 'react-router';
 
-import './style.css';
-import './styleM.css';
+ import './style.css';
+ import './styleM.css';
+ import FAComments from 'react-icons/lib/fa/comments';
+ import FaList from 'react-icons/lib/fa/list';
+ import FaTh from 'react-icons/lib/fa/th';
+ import FaGroup from 'react-icons/lib/fa/group';
+ import FaSearch from 'react-icons/lib/fa/search';
+ import FaSignIn from 'react-icons/lib/fa/sign-in';
 
-export default class Channels extends React.PureComponent {
-  render() {
-    return (
-      <div className="container">
-        <Helmet title="Channels" meta={[ { name: 'description', content: 'Description of Channels' }]}/>
+ export default class Channels extends React.PureComponent {
+   constructor () {
+     super();
+     this.state = {
+     }
+   };
+   render() {
+     return (
+       <div className="container">
+         <Helmet title="Channels" meta={[ { name: 'description', content: 'A forum for free events in Augusta!' }]}/>
 
-        //Remove this line and you can start writing your code here.
-      </div>
-    );
-  }
-}
+         <Link className="siteTitle" to="/ForumPage">
+          <FaTh/>
+           <header>Channels
+           </header>
+         </Link>
 
-Channels.contextTypes = {
-  router: React.PropTypes.object
-};
+         <navBar className="desktopNavBar">
+
+           <Link className="navButtons" to="/ForumPage">
+               <FAComments/>
+               <header>Recent
+               </header>
+           </Link>
+
+           <Link className="navButtons" to="/Channels">
+               <FaTh/>
+               <header>Channels
+               </header>
+           </Link>
+
+           <Link className="navButtons" to="/Users">
+               <FaGroup/>
+               <header>Users
+               </header>
+           </Link>
+
+           <Link className="navButtons" to="/Search">
+             <FaSearch/>
+             <header>Search
+             </header>
+           </Link>
+
+           <Link className="navButtons" to="/SignIn-SignUp">
+             <FaSignIn/>
+             <header>SignIn/SignUp
+             </header>
+           </Link>
+         </navBar>
+       </div>
+     );
+   }
+ }
+
+ ForumPage.contextTypes = {
+   router: React.PropTypes.object
+ };

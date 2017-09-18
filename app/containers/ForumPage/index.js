@@ -16,6 +16,7 @@ import FaTh from 'react-icons/lib/fa/th';
 import FaGroup from 'react-icons/lib/fa/group';
 import FaSearch from 'react-icons/lib/fa/search';
 import FaSignIn from 'react-icons/lib/fa/sign-in';
+import FaPlus from 'react-icons/lib/fa/plus';
 import Drawer from 'components/Drawer';
 
 export default class ForumPage extends React.PureComponent {
@@ -58,11 +59,12 @@ export default class ForumPage extends React.PureComponent {
       <div className="container">
         <Helmet title="ForumPage" meta={[ { name: 'description', content: 'A forum for free events in Augusta!' }]}/>
 
+        <Link className="siteTitle" to="/ForumPage">
+          <header>Free Events in Augusta
+          </header>
+        </Link>
+
         <navBar className="desktopNavBar">
-          <Link className="siteTitle" to="/ForumPage">
-            <header>Free Fun in Augusta
-            </header>
-          </Link>
 
           <Link className="navButtons" to="/ForumPage">
               <FAComments/>
@@ -70,11 +72,10 @@ export default class ForumPage extends React.PureComponent {
               </header>
           </Link>
 
-          <Link className="navButtons" to="/New">
-              <FaList/>
-              <header>New
-              </header>
-          </Link>
+          <a onClick={this.handleBottomDrawer} className="navButtons">
+            <FaPlus/>
+            New Topic
+          </a>
 
           <Link className="navButtons" to="/Channels">
               <FaTh/>
@@ -101,14 +102,12 @@ export default class ForumPage extends React.PureComponent {
           </Link>
         </navBar>
 
-        <a onClick={this.handleBottomDrawer} className="navButtons">+ New Topic
-        </a>
         <Drawer open={this.state.openBottomDrawer} onClose={this.handleBottomDrawer} bottom>
         </Drawer>
         <div className="topicEntries">
-          {this.state.topics.map((t, i) => (
-            <p>{t.topicTitle}</p>
-          ))}
+        {this.state.topics.map((t, i) => (
+          <p>{t.topicTitle}</p>
+        ))}
         </div>
 
       </div>

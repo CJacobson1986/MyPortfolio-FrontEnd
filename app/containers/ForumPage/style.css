@@ -4,43 +4,65 @@
   display:flex;
   flex-direction:column;
   min-height:100vh;
+  background: #373344;
+  align-items: center;
 }
 
 .desktopNavBar {
 display: flex;
 flex-direction: row;
 height: 10vh;
-width: 100%;
-background: #1414bb;
+width: 80%;
+color: white;
+justify-content: center;
+font-variant:small-caps;
+font-family: 'Roboto Slab', serif;
+font-size: 1.3em;
+align-items: center;
+margin: 0 auto;
 }
 
 .siteTitle {
-
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 5px;
+  font-variant:small-caps;
+  font-family: 'Roboto Slab', serif;
+  font-size: 3em;
+  color: white;
+  box-shadow: 5px 5px 5px #0f0f92;
+  background: grey;
+  margin-right: 25%;
+  margin-left: 25%;
+  text-decoration: none;
 }
 
 .navButtons {
   display: flex;
-  flex-direction: column;
-  padding: 15px;
-  margin: 10px;
+  flex-direction: row;
+  padding: 5px;
+  margin: 15px;
   border-radius: 5px;
   font-variant:small-caps;
   font-family: 'Roboto Slab', serif;
   font-size: 1.3em;
   color: white;
-  box-shadow: 10px 10px 5px #0f0f92;
+  box-shadow: 5px 5px 5px #0f0f92;
   cursor:pointer;
   background: grey;
-
+  text-decoration: none;
 }
 
 .navButtons:hover {
-  padding: 15px;
-  margin: 10px;
+  padding: 5px;
+  margin: 15px;
   border-radius: 5px;
   font-variant:small-caps;
   font-family: 'Roboto Slab', serif;
-  font-size: 2em;
+  font-size:1.3em;
   background: #3333c8;
 }
 
@@ -52,9 +74,9 @@ background: #1414bb;
   border-radius: 5px;
   font-variant:small-caps;
   font-family: 'Roboto Slab', serif;
-  font-size: 1.3em;
+  font-size: 2em;
   color: white;
-  box-shadow: 10px 10px 5px #0f0f92;
+  box-shadow: 5px 5px 5px #0f0f92;
   cursor:pointer;
   background: grey;
 }

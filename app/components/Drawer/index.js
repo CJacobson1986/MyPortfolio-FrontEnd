@@ -43,7 +43,7 @@ export default class Drawer extends React.PureComponent {
     fetch('http://localhost:8000/api/storeTopic', {
     method:'Post',
     body:data
-    })
+  })
     .then(function(response) {
       return response.json();
     })
@@ -68,6 +68,7 @@ export default class Drawer extends React.PureComponent {
         <div className="renuiDrawerContainer" style={this.props.overStyle}>
           <div className="renuiDrawerOverlay" onClick={this.props.onClose}>
             <div className="TopicTitles">
+              <header>Channel List:</header>
               {this.state.channels.map((t, i) => (
                 <p> {t.channelTitle} </p>
               ))
@@ -77,6 +78,9 @@ export default class Drawer extends React.PureComponent {
           <div className={classType} style={this.props.style}>
             {this.props.children}
           </div>
+          <input type="text" className="ChannelInput" placeholder="Input Channel"/>
+          <input type="text" className="TopicInput" placeholder="Input New Topic"/>
+          <input type="submit" className="SubmitButton" value="submit" onClick={this.storeTopic}/>
         </div>
       );
     }

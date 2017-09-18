@@ -27,6 +27,33 @@ export default function createRoutes() {
           .catch(errorLoading);
       },
     },
+    {
+     path: '/Channels',
+     name: 'channels',
+     getComponent(nextState, comMod) {
+       import('containers/Channels')
+         .then(loadModule(comMod))
+         .catch(errorLoading);
+     },
+   },
+   {
+    path: '/Users',
+    name: 'Users',
+    getComponent(nextState, comMod) {
+      import('containers/Users')
+        .then(loadModule(comMod))
+        .catch(errorLoading);
+    },
+   },
+   {
+    path: '/Search',
+    name: 'Search',
+    getComponent(nextState, comMod) {
+      import('containers/Search')
+        .then(loadModule(comMod))
+        .catch(errorLoading);
+    },
+   },
      {
       path: '*',
       name: 'notfound',
