@@ -15,7 +15,8 @@ export default class Drawer extends React.PureComponent {
     super(props);
     this.state={
       channels:[],
-
+      openSignUp:false,
+      openSignIn:false
     }
   }
 
@@ -65,8 +66,11 @@ export default class Drawer extends React.PureComponent {
     if(this.props.open === true)
     {
       return (
+        <div>
+        <div className="fullOverlay" onClick={this.props.onClose}>
+        </div>
         <div className="renuiDrawerContainer" style={this.props.overStyle}>
-          <div className="renuiDrawerOverlay" onClick={this.props.onClose}>
+          <div className="renuiDrawerOverlay">
             <div className="TopicTitles">
               <header>Channel List:</header>
               {this.state.channels.map((t, i) => (
@@ -81,6 +85,7 @@ export default class Drawer extends React.PureComponent {
           <input type="text" className="ChannelInput" placeholder="Input Channel"/>
           <input type="text" className="TopicInput" placeholder="Input New Topic"/>
           <input type="submit" className="SubmitButton" value="submit" onClick={this.storeTopic}/>
+        </div>
         </div>
       );
     }

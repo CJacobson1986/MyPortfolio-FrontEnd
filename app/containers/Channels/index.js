@@ -16,11 +16,16 @@
  import FaGroup from 'react-icons/lib/fa/group';
  import FaSearch from 'react-icons/lib/fa/search';
  import FaSignIn from 'react-icons/lib/fa/sign-in';
+ import SignIn from 'components/SignIn';
+ import SignUp from 'components/SignUp';
+
 
  export default class Channels extends React.PureComponent {
    constructor () {
      super();
-     this.state = {
+     this.state={
+       openSignUp:false,
+       openSignIn:false
      }
    };
    render() {
@@ -60,17 +65,29 @@
              </header>
            </Link>
 
-           <Link className="navButtons" to="/SignIn-SignUp">
+           <div className="navButtons" onClick={this.handleLogIn}>
              <FaSignIn/>
-             <header>SignIn/SignUp
+             <header>SignIn
              </header>
-           </Link>
+           </div>
+
+           <SignIn open={this.state.openLogIn}>
+           </SignIn>
+
+             <div className="navButtons" onClick={this.handleSignUp}>
+               <FaSignIn/>
+               <header>SignUp
+               </header>
+             </div>
+
+             <SignUp open={this.state.openSignUp}>
+             </SignUp>
          </navBar>
        </div>
      );
    }
  }
 
- ForumPage.contextTypes = {
+ Channels.contextTypes = {
    router: React.PropTypes.object
  };

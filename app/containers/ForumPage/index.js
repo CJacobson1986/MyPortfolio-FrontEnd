@@ -18,6 +18,8 @@ import FaSearch from 'react-icons/lib/fa/search';
 import FaSignIn from 'react-icons/lib/fa/sign-in';
 import FaPlus from 'react-icons/lib/fa/plus';
 import Drawer from 'components/Drawer';
+import SignIn from 'components/SignIn';
+import SignUp from 'components/SignUp';
 
 export default class ForumPage extends React.PureComponent {
   constructor (props) {
@@ -25,7 +27,9 @@ export default class ForumPage extends React.PureComponent {
     this.state = {
       topics: [],
       openDrawer:false,
-      openBottomDrawer:false
+      openBottomDrawer:false,
+      openSignUp:false,
+      openSignIn:false
     }
   };
 
@@ -37,7 +41,7 @@ export default class ForumPage extends React.PureComponent {
     this.setState({
       openBottomDrawer:!this.state.openBottomDrawer
     })
-  }
+  };
 
   getTopics = () => {
     fetch('http://localhost:8000/api/getTopics/channel=0&count=25', {
@@ -53,6 +57,17 @@ export default class ForumPage extends React.PureComponent {
     }.bind(this))
   };
 
+  handleLogIn = () => {
+    this.setState({
+      openSignIn: !this.state.openSignIn
+    })
+  }
+
+  handleSignUp = () => {
+    this.setState({
+      openSignUp:!this.state.openSignUp
+    })
+  }
 
   render() {
     return (
@@ -74,7 +89,7 @@ export default class ForumPage extends React.PureComponent {
 
           <a onClick={this.handleBottomDrawer} className="navButtons">
             <FaPlus/>
-            New Topic
+            NewTopic
           </a>
 
           <Link className="navButtons" to="/Channels">
@@ -95,14 +110,26 @@ export default class ForumPage extends React.PureComponent {
             </header>
           </Link>
 
-          <Link className="navButtons" to="/SignIn-SignUp">
+          <div className="navButtons" onClick={this.handleLogIn}>
             <FaSignIn/>
-            <header>SignIn/SignUp
+            <header>SignIn
             </header>
-          </Link>
+            </div>
+
+            <SignIn open={this.state.openSignIn} onClose={this.handleLogIn}>
+            </SignIn>
+
+            <div className="navButtons" onClick={this.handleSignup}>
+              <FaSignIn/>
+              <header>SignUp
+              </header>
+              </div>
+
+            <SignUp open={this.state.openSignUp}>
+            </SignUp>
         </navBar>
 
-        <Drawer open={this.state.openBottomDrawer} onClose={this.handleBottomDrawer} bottom>
+        <Drawer open={this.state.openBottomDrawer} onClose={this.handleBottomDrawer}>
         </Drawer>
         <div className="topicEntries">
         {this.state.topics.map((t, i) => (

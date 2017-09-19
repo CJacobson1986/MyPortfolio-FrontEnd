@@ -29,7 +29,7 @@ export default function createRoutes() {
     },
     {
      path: '/Channels',
-     name: 'channels',
+     name: 'Channels',
      getComponent(nextState, comMod) {
        import('containers/Channels')
          .then(loadModule(comMod))

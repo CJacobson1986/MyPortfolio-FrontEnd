@@ -1,13 +1,26 @@
 /* Drawer Styles */
+.fullOverlay{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  bottom: 0;
+  z-index: 1;
+  left:0;
+}
 .renuiDrawerContainer {
   display: flex;
   flex-direction: column;
-  width: 80%;
-  height: 35vh;
+  width: 60%;
+  height: 25vh;
   position: absolute;
+  left: 0;
   bottom: 0;
+  margin-left:20%;
   align-items: center;
   background: #0f0f92;
+  z-index: 2;
 }
 
 .TopicTitles {
