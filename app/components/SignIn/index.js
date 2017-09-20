@@ -20,15 +20,25 @@ export default class SignIn extends React.PureComponent {
   componentWillMount () {
   };
 
+  handleLogIn = () => {
+    this.setState({
+      openSignIn: !this.state.openSignIn
+    })
+  }
+
   render() {
     if(this.props.open === true)
     {
       return (
-        <div className="renuiDialogOverlay">
-          <div className="renuiDialog">
-            <input type="text" className="UserName" placeholder="UserName"/>
-            <input type="text" className="Password" placeholder="Password"/>
-            <input type="submit" className="SubmitButton" value="submit"/>
+        <div>
+          <div className="fullOverlaySignIn" onClick={this.props.onClose}>
+          </div>
+          <div className="renuiDialogOverlay">
+            <div className="renuiDialog">
+              <input type="text" className="UserName" placeholder="UserName"/>
+              <input type="text" className="Password" placeholder="Password"/>
+              <input type="submit" className="SubmitButton" value="submit"/>
+            </div>
           </div>
         </div>
       );

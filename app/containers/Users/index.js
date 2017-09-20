@@ -25,9 +25,40 @@ constructor () {
   super();
   this.state = {
     openSignUp:false,
-    openSignIn:false
+    openSignIn:false,
+    users:[]
   }
 };
+
+getUsers = () => {
+    fetch('http://localhost:8000/api/getUsers', {
+      method:'Get'
+    })
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(json) {
+      this.setState({
+        users:json
+      }, function() {
+      })
+    }.bind(this))
+  };
+
+handleLogIn = () => {
+  this.setState({
+    openSignIn: !this.state.openSignIn,
+    openSignUp: false
+  })
+}
+
+handleSignUp = () => {
+  this.setState({
+    openSignUp:!this.state.openSignUp,
+    openSignIn: false
+  })
+}
+
 render() {
   return (
     <div className="container">
@@ -69,20 +100,25 @@ render() {
           <FaSignIn/>
           <header>SignIn
           </header>
-          </div>
+        </div>
 
-          <SignIn open={this.state.openLogIn}>
+        <SignIn open={this.state.openSignIn} onClose={this.handleLogIn}>
           </SignIn>
 
           <div className="navButtons" onClick={this.handleSignUp}>
             <FaSignIn/>
             <header>SignUp
             </header>
-            </div>
+        </div>
 
-            <SignUp open={this.state.openSignUp}>
-            </SignUp>
+          <SignUp open={this.state.openSignUp} onClose={this.handleSignUp}>
+          </SignUp>
       </navBar>
+      <div className="listUsers">
+      {this.state.users.map((t, i) => (
+        <div key={i}>{t.name}<p>{t.id}</p><p>{t.activated}</p></div>
+      ))}
+      </div>
     </div>
   );
 }

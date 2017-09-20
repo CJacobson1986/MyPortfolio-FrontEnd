@@ -34,11 +34,12 @@ margin: 0 auto;
   font-family: 'Roboto Slab', serif;
   font-size: 3em;
   color: white;
-  box-shadow: 5px 5px 5px #0f0f92;
+  box-shadow: 5px 5px 5px #000000;
   background: grey;
-  margin-right: 25%;
-  margin-left: 25%;
+  margin-right: 15%;
+  margin-left: 15%;
   text-decoration: none;
+  cursor: default;
 }
 
 .navButtons {
@@ -51,11 +52,11 @@ margin: 0 auto;
   font-family: 'Roboto Slab', serif;
   font-size: 1.3em;
   color: white;
-  box-shadow: 5px 5px 5px #0f0f92;
+  box-shadow: 5px 5px 5px #000000;
   cursor:pointer;
   background: grey;
   text-decoration: none;
-  z-index: 1;
+  z-index: 10;
 }
 
 .navButtons:hover {
@@ -78,7 +79,15 @@ margin: 0 auto;
   font-family: 'Roboto Slab', serif;
   font-size: 2em;
   color: white;
-  box-shadow: 5px 5px 5px #0f0f92;
+  box-shadow: 5px 5px 5px #000000;
   cursor:pointer;
   background: grey;
+}
+
+.fullOverlayTwo {
+  height: 100vh;
+  width: 100%;
+  z-index: 7;
+  left: 0;
+  bottom: 0;
 }

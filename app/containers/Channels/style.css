@@ -5,6 +5,7 @@
   flex-direction:column;
   min-height:100vh;
   background: #373344;
+  align-items: center;
 }
 
 .desktopNavBar {
@@ -23,7 +24,7 @@ margin: 0 auto;
 
 .siteTitle {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   padding: 15px;
   margin: 10px;
@@ -103,4 +104,15 @@ margin: 0 auto;
   box-shadow: 5px 5px 5px #0f0f92;
   cursor:pointer;
   background: grey;
+}
+
+.listChannels {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5em;
+  height: 35vh;
+  width: 65%;
+  background: white;
+  color: black;
+  align-items: center
 }

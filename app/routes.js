@@ -54,6 +54,15 @@ export default function createRoutes() {
         .catch(errorLoading);
     },
    },
+   {
+    path: '/Details/:slug',
+    name: 'details',
+    getComponent(nextState, comMod) {
+      import('containers/Details')
+        .then(loadModule(comMod))
+        .catch(errorLoading);
+    },
+  },
      {
       path: '*',
       name: 'notfound',

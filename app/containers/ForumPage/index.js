@@ -59,13 +59,15 @@ export default class ForumPage extends React.PureComponent {
 
   handleLogIn = () => {
     this.setState({
-      openSignIn: !this.state.openSignIn
+      openSignIn: !this.state.openSignIn,
+      openSignUp: false
     })
   }
 
   handleSignUp = () => {
     this.setState({
-      openSignUp:!this.state.openSignUp
+      openSignUp:!this.state.openSignUp,
+      openSignIn: false
     })
   }
 
@@ -74,10 +76,10 @@ export default class ForumPage extends React.PureComponent {
       <div className="container">
         <Helmet title="ForumPage" meta={[ { name: 'description', content: 'A forum for free events in Augusta!' }]}/>
 
-        <Link className="siteTitle" to="/ForumPage">
-          <header>Free Events in Augusta
+        <div className="siteTitle">
+          <header>Event Headquarters for Augusta, Georgia
           </header>
-        </Link>
+        </div>
 
         <navBar className="desktopNavBar">
 
@@ -114,18 +116,18 @@ export default class ForumPage extends React.PureComponent {
             <FaSignIn/>
             <header>SignIn
             </header>
-            </div>
+          </div>
 
-            <SignIn open={this.state.openSignIn} onClose={this.handleLogIn}>
+          <SignIn open={this.state.openSignIn} onClose={this.handleLogIn}>
             </SignIn>
 
-            <div className="navButtons" onClick={this.handleSignup}>
+            <div className="navButtons" onClick={this.handleSignUp}>
               <FaSignIn/>
               <header>SignUp
               </header>
-              </div>
+          </div>
 
-            <SignUp open={this.state.openSignUp}>
+            <SignUp open={this.state.openSignUp} onClose={this.handleSignUp}>
             </SignUp>
         </navBar>
 
@@ -133,10 +135,9 @@ export default class ForumPage extends React.PureComponent {
         </Drawer>
         <div className="topicEntries">
         {this.state.topics.map((t, i) => (
-          <p>{t.topicTitle}</p>
+          <Link key={i} to={'/Details/'+t.topicSlug}>{t.topicTitle}</Link>
         ))}
         </div>
-
       </div>
     );
   }

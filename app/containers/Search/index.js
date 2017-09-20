@@ -26,6 +26,21 @@ export default class Search extends React.PureComponent {
       openSignIn:false
     }
   };
+
+  handleLogIn = () => {
+    this.setState({
+      openSignIn: !this.state.openSignIn,
+      openSignUp: false
+    })
+  }
+
+  handleSignUp = () => {
+    this.setState({
+      openSignUp:!this.state.openSignUp,
+      openSignIn: false
+    })
+  }
+
   render() {
     return (
       <div className="container">
@@ -67,19 +82,19 @@ export default class Search extends React.PureComponent {
             <FaSignIn/>
             <header>SignIn
             </header>
-            </div>
+          </div>
 
-            <SignIn open={this.state.openLogIn}>
+          <SignIn open={this.state.openSignIn} onClose={this.handleLogIn}>
             </SignIn>
 
             <div className="navButtons" onClick={this.handleSignUp}>
               <FaSignIn/>
               <header>SignUp
               </header>
-              </div>
+          </div>
 
-              <SignUp open={this.state.openSignUp}>
-              </SignUp>
+            <SignUp open={this.state.openSignUp} onClose={this.handleSignUp}>
+            </SignUp>
         </navBar>
       </div>
     );

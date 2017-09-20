@@ -1,13 +1,22 @@
 /* SignUp Styles */
-.renuiDialogOverlay {
-  height:100vh;
-  width:100vw;
+.fullOverlaySignUp{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  bottom: 0;
+  z-index: 7;
+  left:0;
+}
+
+.renuiDialogOverlayTwo {
   position:fixed;
   top:0;
   left:0;
   background:rgba(0, 0, 0, 0.3);
-  animation: fadeIn 300ms;
-  z-index:7;
+  animation: fadeIn 500ms;
+  z-index:8;
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -19,11 +28,20 @@
   100%  { opacity: 1;  }
 }
 
-.renuiDialog {
+.renuiDialogOverlayHiddenTwo {
+  display:none;
+}
+
+.renuiDialogTwo {
+  position:fixed;
+  top:0;
+  margin-top:35vh;
+  left:0;
+  margin-left:30vw;
   background:#FFFFFF;
   min-height:40vh;
   width:40vw;
-  z-index:8;
+  z-index:9;
   border-radius:5px;
   box-shadow:0px 0px 10px 0px rgba(0, 0, 0, 0.6);
   padding:15px;

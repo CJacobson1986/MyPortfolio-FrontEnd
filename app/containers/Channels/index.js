@@ -25,9 +25,44 @@
      super();
      this.state={
        openSignUp:false,
-       openSignIn:false
+       openSignIn:false,
+       channels:[]
      }
    };
+
+   componentWillMount() {
+     this.getChannels();
+   }
+
+   getChannels = () => {
+     fetch('http://localhost:8000/api/getChannels', {
+       method:'Get'
+     })
+     .then(function(response) {
+       return response.json();
+     })
+     .then(function(json) {
+       this.setState({
+         channels:json
+       }, function() {
+       })
+     }.bind(this))
+   };
+
+   handleLogIn = () => {
+     this.setState({
+       openSignIn: !this.state.openSignIn,
+       openSignUp: false
+     })
+   };
+
+   handleSignUp = () => {
+     this.setState({
+       openSignUp:!this.state.openSignUp,
+       openSignIn: false
+     })
+   };
+
    render() {
      return (
        <div className="container">
@@ -71,18 +106,24 @@
              </header>
            </div>
 
-           <SignIn open={this.state.openLogIn}>
-           </SignIn>
+           <SignIn open={this.state.openSignIn} onClose={this.handleLogIn}>
+             </SignIn>
 
              <div className="navButtons" onClick={this.handleSignUp}>
                <FaSignIn/>
                <header>SignUp
                </header>
-             </div>
+           </div>
 
-             <SignUp open={this.state.openSignUp}>
+             <SignUp open={this.state.openSignUp} onClose={this.handleSignUp}>
              </SignUp>
          </navBar>
+
+         <div className="listChannels">
+         {this.state.channels.map((t, i) => (
+           <div key={i}>{t.channelTitle}<p>{t.channelDesc}</p></div>
+         ))}
+         </div>
        </div>
      );
    }

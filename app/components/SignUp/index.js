@@ -18,26 +18,28 @@ export default class SignUp extends React.PureComponent {
   };
 
   componentWillMount () {
+
   };
 
   render() {
-    if(this.state.open === true)
+    if(this.props.open === true)
     {
       return (
         <div>
-          <div className="renuiDialogOverlay">
+          <div className="fullOverlaySignUp" onClick={this.props.onClose}>
+          </div>
+          <div className="renuiDialogOverlayTwo">
             <div className="renuiDialog">
               <input type="text" className="UserName" placeholder="Email"/>
               <input type="text" className="Password" placeholder="Password"/>
               <input type="submit" className="SubmitButton" value="submit"/>
-              <FaClose/>
             </div>
           </div>
         </div>
       );
     } else {
       return (
-        <div className="renuiDialogOverlayHidden"></div>
+        <div className="renuiDialogOverlayHiddenTwo"></div>
       );
     }
   }
