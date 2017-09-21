@@ -1,17 +1,37 @@
-/* ForumPage Styles */
+/* Admin Styles */
 
 .container {
   display:flex;
   flex-direction:column;
   min-height:100vh;
-  background: #373344;
   align-items: center;
-  z-index:0;
+  background: #373344;
 }
 
-.adminButton {
-  text-decoration: none;
+.picUploadHeader {
+  font-size: 1.5em;
   color: white;
+}
+
+.chooseFile {
+  height: 5vh;
+  color: white;
+}
+
+.submitButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 6%;
+  height: 4.5vh;
+  font-size: 1.3em;
+}
+
+.image {
+  display: flex;
+  flex-direction: column;
+  width:100vw;
+  height: auto;
 }
 
 .desktopNavBar {
@@ -72,27 +92,4 @@ margin: 0 auto;
   font-family: 'Roboto Slab', serif;
   font-size:1.3em;
   background: #3333c8;
-}
-
-.topicEntries {
-  display: flex;
-  flex-direction: column;
-  padding: 15px;
-  margin: 10px;
-  border-radius: 5px;
-  font-variant:small-caps;
-  font-family: 'Roboto Slab', serif;
-  font-size: 2em;
-  color: white;
-  box-shadow: 5px 5px 5px #000000;
-  cursor:pointer;
-  background: grey;
-}
-
-.fullOverlayTwo {
-  height: 100vh;
-  width: 100%;
-  z-index: 7;
-  left: 0;
-  bottom: 0;
 }

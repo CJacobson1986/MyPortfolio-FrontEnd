@@ -29,7 +29,8 @@ export default class ForumPage extends React.PureComponent {
       openDrawer:false,
       openBottomDrawer:false,
       openSignUp:false,
-      openSignIn:false
+      openSignIn:false,
+      admin: 1
     }
   };
 
@@ -71,15 +72,24 @@ export default class ForumPage extends React.PureComponent {
     })
   }
 
-  render() {
+render() {
+  let adminLink = null;
+  if(this.state.admin == 1)
+  {
+    adminLink = <Link className="adminButton" to='/Admin'>Admin Link</Link>;
+  }
     return (
       <div className="container">
         <Helmet title="ForumPage" meta={[ { name: 'description', content: 'A forum for free events in Augusta!' }]}/>
+
+
 
         <div className="siteTitle">
           <header>Event Headquarters for Augusta, Georgia
           </header>
         </div>
+
+        {adminLink}
 
         <navBar className="desktopNavBar">
 

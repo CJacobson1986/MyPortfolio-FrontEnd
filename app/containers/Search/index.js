@@ -23,7 +23,8 @@ export default class Search extends React.PureComponent {
     super();
     this.state = {
       openSignUp:false,
-      openSignIn:false
+      openSignIn:false,
+      result:[]
     }
   };
 
@@ -40,6 +41,34 @@ export default class Search extends React.PureComponent {
       openSignIn: false
     })
   }
+
+  handleEnter = (event) => {
+    if (event.keyCode === 13)
+    this.storeTask();
+  };
+
+  handleItem = (event) => {
+    this.setState({
+      inputItem: event.target.value
+    })
+  };
+
+  searchContent = () => {
+    let data = new FormData;
+    data.append('searchContent', this.state.inputItem);
+  fetch('http://localhost:8000/api/search', {
+    method:'Post',
+    result:data
+    })
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(json) {
+      this.setState({
+        result:json.data
+      })
+    }.bind(this))
+  };
 
   render() {
     return (
@@ -96,6 +125,11 @@ export default class Search extends React.PureComponent {
             <SignUp open={this.state.openSignUp} onClose={this.handleSignUp}>
             </SignUp>
         </navBar>
+        <input type="text" className="searchContentInput" placeholder="Topic Title" onChange={this.handleItem} onKeyDown={this.handleEnter} value={this.state.inputItem} />
+        <input type="submit" className="submitButton" onClick={this.searchContent}/>
+        <div className="searchResults">
+
+        </div>
       </div>
     );
   }

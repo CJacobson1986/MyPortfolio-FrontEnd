@@ -14,13 +14,14 @@ export default class Slider extends React.PureComponent {
   constructor() {
     super();
     this.state = {
-      images: ['Morocco1.jpg', 'Morocco2.jpg', 'Morocco3.jpg', 'Morocco4.jpg', 'Morocco5.jpg', 'Morocco6.jpg', 'Morocco7.jpg'],
+      images: [],
       activeIndex:0,
       slideStyle: "slideImage"
     }
   }
 
   componentDidMount() {
+  this.getBackground();
   this.autoSlide();
   this.setState({
     slideStyle: "slideImage slideAnimation"
@@ -35,7 +36,7 @@ export default class Slider extends React.PureComponent {
   {
     if(i === activeIndex)
     {
-      return images[i];
+      return images[i].photoURL;
     }
   }
   }
@@ -55,7 +56,6 @@ export default class Slider extends React.PureComponent {
     });
   }
 
-  console.log(this.state.activeIndex);
   }
 
   autoSlide = () => {
@@ -75,13 +75,27 @@ export default class Slider extends React.PureComponent {
     })
   }
 
+  getBackground = () => {
+    fetch('http://localhost:8000/api/getPictures', {
+      method: 'GET'
+    })
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(json) {
+      this.setState({
+        images: json.pictures
+      })
+    }.bind(this))
+  }
+
 
   render() {
     return (
       <div>
             <div className="slider">
               <img className={this.state.slideStyle}
-              src={require('../../images/'+this.renderImage())}/>
+              src={this.renderImage()}/>
               </div>
       </div>
     );

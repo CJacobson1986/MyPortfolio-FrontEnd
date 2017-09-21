@@ -5,20 +5,21 @@
   flex-direction:column;
   min-height:100vh;
   background: #373344;
+  align-items: center;
 }
 
 .desktopNavBar {
-display: flex;
-flex-direction: row;
-height: 10vh;
-width: 80%;
-color: white;
-justify-content: center;
-font-variant:small-caps;
-font-family: 'Roboto Slab', serif;
-font-size: 1.3em;
-align-items: center;
-margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  height: 10vh;
+  width: 80%;
+  color: white;
+  justify-content: center;
+  font-variant:small-caps;
+  font-family: 'Roboto Slab', serif;
+  font-size: 1.3em;
+  align-items: center;
+  margin: 0 auto;
 }
 
 .siteTitle {
@@ -32,7 +33,7 @@ margin: 0 auto;
   font-family: 'Roboto Slab', serif;
   font-size: 3em;
   color: white;
-  box-shadow: 5px 5px 5px #0f0f92;
+  box-shadow: 5px 5px 5px #000000;
   background: grey;
   margin-right: 25%;
   margin-left: 25%;
@@ -40,7 +41,8 @@ margin: 0 auto;
 }
 
 .navButtons {
-  display: absolute;
+  display: flex;
+  flex-direction: row;
   padding: 5px;
   margin: 15px;
   border-radius: 5px;
@@ -48,48 +50,31 @@ margin: 0 auto;
   font-family: 'Roboto Slab', serif;
   font-size: 1.3em;
   color: white;
-  box-shadow: 5px 5px 5px #0f0f92;
+  box-shadow: 5px 5px 5px #000000;
   cursor:pointer;
   background: grey;
   text-decoration: none;
 }
 
-.navButtons:hover {
-  padding: 5px;
-  margin: 15px;
-  border-radius: 5px;
-  font-variant:small-caps;
-  font-family: 'Roboto Slab', serif;
-  font-size:1.3em;
-  background: #3333c8;
-}
-
-.newTopic {
+.searchContentInput {
   display: flex;
   flex-direction: column;
-  padding: 15px;
-  margin: 10px;
-  border-radius: 5px;
-  font-variant:small-caps;
-  font-family: 'Roboto Slab', serif;
-  font-size: 1.3em;
-  color: white;
-  box-shadow: 5px 5px 5px #0f0f92;
-  cursor:pointer;
-  background: grey;
+  align-items: center;
+  width: 20%;
+  height: 5vh;
+  font-size: 1.5em;
+  margin-top: 30px;
+  box-shadow: 5px 5px 5px #000000;
 }
 
-.newTopic:hover {
-  padding: 15px;
-  margin: 10px;
-  border-radius: 5px;
-  font-variant:small-caps;
-  font-family: 'Roboto Slab', serif;
-  font-size:1.5em;
-  background: #3333c8;
+.submitButton {
+  margin-top: 15px;
+  height: 5vh;
+  width: 20%;
+  box-shadow: 5px 5px 5px #000000;
 }
 
-.topicEntries {
+.searchResults {
   display: flex;
   flex-direction: column;
   padding: 15px;
@@ -99,7 +84,7 @@ margin: 0 auto;
   font-family: 'Roboto Slab', serif;
   font-size: 2em;
   color: white;
-  box-shadow: 5px 5px 5px #0f0f92;
+  box-shadow: 5px 5px 5px #00000;
   cursor:pointer;
   background: grey;
 }

@@ -19,6 +19,15 @@ export default function createRoutes() {
        },
      },
      {
+      path: '/Admin',
+      name: 'admin',
+      getComponent(nextState, comMod) {
+        import('containers/Admin')
+          .then(loadModule(comMod))
+          .catch(errorLoading);
+      },
+    },
+     {
       path: '/ForumPage',
       name: 'forumpage',
       getComponent(nextState, comMod) {
