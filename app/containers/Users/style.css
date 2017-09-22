@@ -6,6 +6,7 @@
   min-height:100vh;
   background: #373344;
   align-items: center;
+  z-index:0;
 }
 
 .desktopNavBar {
@@ -31,63 +32,38 @@ margin: 0 auto;
   border-radius: 5px;
   font-variant:small-caps;
   font-family: 'Roboto Slab', serif;
-  font-size: 3em;
+  font-size: 1.5em;
   color: white;
-  box-shadow: 5px 5px 5px #0f0f92;
+  box-shadow: 5px 5px 5px #000000;
   background: grey;
-  margin-right: 25%;
-  margin-left: 25%;
   text-decoration: none;
+  cursor: default;
 }
 
 .navButtons {
   display: flex;
   flex-direction: row;
   padding: 5px;
-  margin: 15px;
+  margin: 1%;
   border-radius: 5px;
   font-variant:small-caps;
   font-family: 'Roboto Slab', serif;
-  font-size: 1.3em;
+  font-size: auto;
   color: white;
-  box-shadow: 5px 5px 5px #0f0f92;
+  box-shadow: 5px 5px 5px #000000;
   cursor:pointer;
   background: grey;
   text-decoration: none;
+  z-index: 10;
 }
 
 .navButtons:hover {
   padding: 5px;
-  margin: 15px;
+  margin: 1%;
   border-radius: 5px;
   font-variant:small-caps;
   font-family: 'Roboto Slab', serif;
-  font-size:1.3em;
-  background: #3333c8;
-}
-
-.newTopic {
-  display: flex;
-  flex-direction: column;
-  padding: 15px;
-  margin: 10px;
-  border-radius: 5px;
-  font-variant:small-caps;
-  font-family: 'Roboto Slab', serif;
-  font-size: 1.3em;
-  color: white;
-  box-shadow: 5px 5px 5px #0f0f92;
-  cursor:pointer;
-  background: grey;
-}
-
-.newTopic:hover {
-  padding: 15px;
-  margin: 10px;
-  border-radius: 5px;
-  font-variant:small-caps;
-  font-family: 'Roboto Slab', serif;
-  font-size:1.3em;
+  font-size: auto;
   background: #3333c8;
 }
 
@@ -101,9 +77,17 @@ margin: 0 auto;
   font-family: 'Roboto Slab', serif;
   font-size: 2em;
   color: white;
-  box-shadow: 5px 5px 5px #0f0f92;
+  box-shadow: 5px 5px 5px #000000;
   cursor:pointer;
   background: grey;
+}
+
+.fullOverlayTwo {
+  height: 100vh;
+  width: 100%;
+  z-index: 7;
+  left: 0;
+  bottom: 0;
 }
 
 .listUsers {

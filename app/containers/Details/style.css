@@ -31,12 +31,10 @@ margin: 0 auto;
   border-radius: 5px;
   font-variant:small-caps;
   font-family: 'Roboto Slab', serif;
-  font-size: 3em;
+  font-size: 1.5em;
   color: white;
   box-shadow: 5px 5px 5px #000000;
   background: grey;
-  margin-right: 15%;
-  margin-left: 15%;
   text-decoration: none;
   cursor: default;
 }
@@ -45,11 +43,11 @@ margin: 0 auto;
   display: flex;
   flex-direction: row;
   padding: 5px;
-  margin: 15px;
+  margin: 1%;
   border-radius: 5px;
   font-variant:small-caps;
   font-family: 'Roboto Slab', serif;
-  font-size: 1.3em;
+  font-size: auto;
   color: white;
   box-shadow: 5px 5px 5px #000000;
   cursor:pointer;
@@ -60,11 +58,11 @@ margin: 0 auto;
 
 .navButtons:hover {
   padding: 5px;
-  margin: 15px;
+  margin: 1%;
   border-radius: 5px;
   font-variant:small-caps;
   font-family: 'Roboto Slab', serif;
-  font-size:1.3em;
+  font-size: auto;
   background: #3333c8;
 }
 

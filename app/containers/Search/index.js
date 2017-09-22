@@ -35,6 +35,13 @@ export default class Search extends React.PureComponent {
     })
   }
 
+  handleItem = (event) => {
+    let searchContent = event.target.value[0];
+    this.setState({
+      result:{}
+    })
+  };
+
   handleSignUp = () => {
     this.setState({
       openSignUp:!this.state.openSignUp,
@@ -44,20 +51,14 @@ export default class Search extends React.PureComponent {
 
   handleEnter = (event) => {
     if (event.keyCode === 13)
-    this.storeTask();
-  };
-
-  handleItem = (event) => {
-    this.setState({
-      inputItem: event.target.value
-    })
+    this.searchContent();
   };
 
   searchContent = () => {
     let data = new FormData;
-    data.append('searchContent', this.state.inputItem);
+    data.append('searchContent', this.state.taskContent);
   fetch('http://localhost:8000/api/search', {
-    method:'Post',
+    method:'POST',
     result:data
     })
     .then(function(response) {
@@ -65,8 +66,9 @@ export default class Search extends React.PureComponent {
     })
     .then(function(json) {
       this.setState({
-        result:json.data
+        result:json.topic
       })
+      console.log(data)
     }.bind(this))
   };
 
@@ -125,10 +127,13 @@ export default class Search extends React.PureComponent {
             <SignUp open={this.state.openSignUp} onClose={this.handleSignUp}>
             </SignUp>
         </navBar>
-        <input type="text" className="searchContentInput" placeholder="Topic Title" onChange={this.handleItem} onKeyDown={this.handleEnter} value={this.state.inputItem} />
-        <input type="submit" className="submitButton" onClick={this.searchContent}/>
-        <div className="searchResults">
 
+        <input type="text" className="searchContentInput" placeholder="Topic Title" onKeyDown={this.handleEnter} value={this.state.inputItem}/>
+
+        <input type="submit" className="submitButton" onClick={this.searchContent}/>
+
+        <div className="searchResults">
+        Topic Title:{this.state.result.json}
         </div>
       </div>
     );

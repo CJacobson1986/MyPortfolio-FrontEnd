@@ -30,6 +30,10 @@ constructor () {
   }
 };
 
+componentWillMount () {
+  this.getUsers()
+}
+
 getUsers = () => {
     fetch('http://localhost:8000/api/getUsers', {
       method:'Get'
@@ -39,7 +43,7 @@ getUsers = () => {
     })
     .then(function(json) {
       this.setState({
-        users:json
+        users:[]
       }, function() {
       })
     }.bind(this))
@@ -116,7 +120,9 @@ render() {
       </navBar>
       <div className="listUsers">
       {this.state.users.map((t, i) => (
-        <div key={i}>{t.name}<p>{t.id}</p><p>{t.activated}</p></div>
+        <div key={i}>{t.name}
+        <p>{t.avatar}</p>
+        </div>
       ))}
       </div>
     </div>

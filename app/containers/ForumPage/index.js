@@ -89,7 +89,8 @@ render() {
           </header>
         </div>
 
-        {adminLink}
+        <p className="adminButton">{adminLink}
+        </p>
 
         <navBar className="desktopNavBar">
 

@@ -45,7 +45,7 @@
        this.setState({
          channels:json
        }, function() {
-       })
+       });
      }.bind(this))
    };
 
@@ -120,8 +120,10 @@
          </navBar>
 
          <div className="listChannels">
-         {this.state.channels.map((t, i) => (
-           <div key={i}>{t.channelTitle}<p>{t.channelDesc}</p></div>
+          {this.state.channels.map((t, i) => (
+           <div key={i}> {t.channelTitle}
+           <p>{t.channelDesc}</p>
+           </div>
          ))}
          </div>
        </div>
