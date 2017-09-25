@@ -31,7 +31,7 @@ constructor () {
 };
 
 componentWillMount () {
-  this.getUsers()
+  this.getUsers();
 }
 
 getUsers = () => {
@@ -43,9 +43,9 @@ getUsers = () => {
     })
     .then(function(json) {
       this.setState({
-        users:[]
+        users:json.users
       }, function() {
-      })
+      });
     }.bind(this))
   };
 
@@ -120,8 +120,7 @@ render() {
       </navBar>
       <div className="listUsers">
       {this.state.users.map((t, i) => (
-        <div key={i}>{t.name}
-        <p>{t.avatar}</p>
+        <div className="users" key={i}><img src={t.avatar} className="avatar"/>  {t.name} 
         </div>
       ))}
       </div>

@@ -55,20 +55,21 @@ export default class Search extends React.PureComponent {
   };
 
   searchContent = () => {
-    let data = new FormData;
+    let data = new FormData();
+    let _this = this;
     data.append('searchContent', this.state.taskContent);
   fetch('http://localhost:8000/api/search', {
     method:'POST',
-    result:data
+    body:data
     })
     .then(function(response) {
       return response.json();
     })
     .then(function(json) {
-      this.setState({
-        result:json.topic
+      _this.setState({
+        result:json.data
       })
-      console.log(data)
+      console.log(json.data);
     }.bind(this))
   };
 
@@ -133,7 +134,7 @@ export default class Search extends React.PureComponent {
         <input type="submit" className="submitButton" onClick={this.searchContent}/>
 
         <div className="searchResults">
-        Topic Title:{this.state.result.json}
+        Topic Title:{this.state.result.topicTitle}
         </div>
       </div>
     );

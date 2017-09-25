@@ -72,6 +72,15 @@ export default function createRoutes() {
         .catch(errorLoading);
     },
   },
+  {
+   path: '/Replies/:slug',
+   name: 'replies',
+   getComponent(nextState, comMod) {
+     import('containers/Replies')
+       .then(loadModule(comMod))
+       .catch(errorLoading);
+   },
+ },
      {
       path: '*',
       name: 'notfound',

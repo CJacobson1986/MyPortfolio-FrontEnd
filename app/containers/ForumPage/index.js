@@ -145,9 +145,10 @@ render() {
         <Drawer open={this.state.openBottomDrawer} onClose={this.handleBottomDrawer}>
         </Drawer>
         <div className="topicEntries">
-        {this.state.topics.map((t, i) => (
-          <Link key={i} to={'/Details/'+t.topicSlug}>{t.topicTitle}</Link>
-        ))}
+          <header>Events:</header>
+          {this.state.topics.map((t, i) => (
+            <Link className="links" key={i} to={'/Details/'+t.topicSlug}>{t.topicTitle}</Link>
+          ))}
         </div>
       </div>
     );

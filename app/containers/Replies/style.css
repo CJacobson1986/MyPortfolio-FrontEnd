@@ -1,4 +1,4 @@
-/* Admin Styles */
+/* Replies Styles */
 
 .container {
   display:flex;
@@ -7,32 +7,6 @@
   background: #373344;
   align-items: center;
   z-index:0;
-}
-
-.picUploadHeader {
-  font-size: 1.5em;
-  color: white;
-}
-
-.chooseFile {
-  height: 5vh;
-  color: white;
-}
-
-.submitButton {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 6%;
-  height: 4.5vh;
-  font-size: 1.3em;
-}
-
-.image {
-  display: flex;
-  flex-direction: column;
-  width:100vw;
-  height: auto;
 }
 
 .desktopNavBar {
@@ -93,7 +67,7 @@ margin: 0 auto;
   background: black;
 }
 
-.topicEntries {
+.topicReplies {
   display: flex;
   flex-direction: column;
   padding: 15px;
@@ -106,4 +80,13 @@ margin: 0 auto;
   box-shadow: 5px 5px 5px #000000;
   cursor:pointer;
   background: grey;
+}
+
+.avatar {
+  height: 30px;
+  width: 30px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
 }

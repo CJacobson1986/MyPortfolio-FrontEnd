@@ -15,8 +15,6 @@ export default class Drawer extends React.PureComponent {
     super(props);
     this.state={
       channels:[],
-      openSignUp:false,
-      openSignIn:false
     }
   }
 
@@ -24,7 +22,30 @@ export default class Drawer extends React.PureComponent {
     this.createTopic();
   };
 
+  storeTopic = () => {
+    let data = new FormData;
+    let _this = this;
+    data.append('topicTitle', this.state.inputTitle);
+    data.append('topicChannel', this.state.inputChannel);
+    data.append('topicBody', this.state.inputBody);
+
+    fetch('http://localhost:8000/api/storeTopic', {
+      method:'POST',
+      body:data
+    })
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(json) {
+      _this.setState({
+        notification: json.message
+      })
+    })
+    this.forceUpdate();
+  };
+
   createTopic = () => {
+    let _this = this;
     fetch('http://localhost:8000/api/createTopic', {
       method:'Get'
     })
@@ -32,31 +53,26 @@ export default class Drawer extends React.PureComponent {
       return response.json();
     })
     .then(function(json) {
-      this.setState({
+      _this.setState({
         channels:json.channels
       })
     }.bind(this))
   };
 
-  storeTopic = () => {
-    let data = new FormData;
-    data.append('taskContent', this.state.inputItem);
-    fetch('http://localhost:8000/api/storeTopic', {
-    method:'Post',
-    body:data
-  })
-    .then(function(response) {
-      return response.json();
+  handleItemTitle = (event) => {
+    this.setState({
+      inputItemTitle: event.target.value
     })
-    .then(function(json) {
-      let topics = this.state.topics;
-      topics.push(json.task);
-      this.setState({
-        topics:topics,
-        inputItem:""
-      })
-      this.forceUpdate();
-    }.bind(this))
+  };
+  handleItemChannel = (event) => {
+    this.setState({
+      inputItemChannel: event.target.id
+    })
+  };
+  handleItemBody = (event) => {
+    this.setState({
+      inputItemBody: event.target.value
+    })
   };
 
   render() {
@@ -75,17 +91,18 @@ export default class Drawer extends React.PureComponent {
                 <header>Channel List:
                 </header>
                 {this.state.channels.map((t, i) => (
-                  <p key={i}> {t.channelTitle} </p>
+                  <div key={i} className="channelButton" onClick={this.handleItemChannel}> {t.channelTitle} </div>
                 ))
                 }
               </div>
             </div>
-            <div className={classType} style={this.props.style}>
+            <div style={this.props.style}>
               {this.props.children}
             </div>
-            <input type="text" className="ChannelInput" placeholder="Input Channel"/>
-            <input type="text" className="TopicInput" placeholder="Input New Topic"/>
-            <input type="submit" className="SubmitButton" value="submit" onClick={this.storeTopic}/>
+            <input type="text" className="textInput" onChange={this.handleItemTitle} placeholder="New Event"/>
+            <input type="text" className="textInput" onChange={this.handleItemBody} placeholder="Event Description"/>
+            <input type="submit" className="submitButton" value="submit" onClick={this.storeTopic}/>
+            <div className="notification"> {this.state.notification} </div>
           </div>
         </div>
       );

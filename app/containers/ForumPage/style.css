@@ -69,7 +69,7 @@ margin: 0 auto;
   font-variant:small-caps;
   font-family: 'Roboto Slab', serif;
   font-size: auto;
-  background: #3333c8;
+  background: black;
 }
 
 .topicEntries {
@@ -85,6 +85,20 @@ margin: 0 auto;
   box-shadow: 5px 5px 5px #000000;
   cursor:pointer;
   background: grey;
+}
+
+.links {
+  text-decoration: none;
+  font-variant:small-caps;
+  font-family: 'Roboto Slab', serif;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #000000;
+  padding: 5px;
+  margin-bottom: 5px;
+  font-size: .75em;
 }
 
 .fullOverlayTwo {

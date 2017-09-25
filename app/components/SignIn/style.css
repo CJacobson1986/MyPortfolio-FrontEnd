@@ -8,12 +8,12 @@
   bottom: 0;
   z-index: 7;
   left:0;
+  background:rgba(0, 0, 0, 0.3);
 }
-.renuiDialogOverlay {
+.renuiDialogOverlayTwo {
   position:fixed;
   top:0;
   left:0;
-  background:rgba(0, 0, 0, 0.3);
   animation: fadeIn 500ms;
   z-index:8;
   display:flex;
@@ -31,17 +31,44 @@
   display:none;
 }
 
-.renuiDialog {
+.renuiDialogTwo {
   position:fixed;
+  display: flex;
+  flex-direction: column;
   top:0;
   margin-top:35vh;
   left:0;
   margin-left:30vw;
-  background:#FFFFFF;
-  min-height:40vh;
+  background: grey;
+  min-height:auto;
   width:40vw;
   z-index:9;
   border-radius:5px;
   box-shadow:0px 0px 10px 0px rgba(0, 0, 0, 0.6);
   padding:15px;
+  color: white;
+  animation-name: fadeIn;
+  animation-duration: 2000ms;
+  align-items: center;
+}
+
+.textInputTwo {
+  box-shadow: 5px 5px 5px #000000;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.submitButtonTwo {
+    text-decoration: none;
+    font-variant:small-caps;
+    font-family: 'Roboto Slab', serif;
+    box-shadow: 5px 5px 5px #000000;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    height: 30px;
+    width: 75px;
+    font-size: 1.2em;
+    margin-top: 10px;
 }

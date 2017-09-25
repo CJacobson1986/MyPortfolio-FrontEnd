@@ -6,25 +6,83 @@
   height: 100vh;
   width: 100%;
   bottom: 0;
-  z-index: 1;
+  z-index: 19;
   left:0;
+  background:rgba(0, 0, 0, 0.3);
 }
 .renuiDrawerContainer {
   display: flex;
   flex-direction: column;
-  width: 60%;
-  height: 25vh;
+  width: 50%;
+  height: auto;
   position: absolute;
+  border-radius: 5px;
   left: 0;
   bottom: 0;
-  margin-left:20%;
+  margin-left:25%;
   align-items: center;
-  background: #0f0f92;
-  z-index: 2;
+  background: grey;
+  z-index: 29;
+  margin-bottom: 5%;
+  animation-name: fadeIn;
+  animation-duration: 2000ms;
 }
 
 .TopicTitles {
-  font-family: 'Amatic SC', cursive;
-  font-size: 1.6em;
+font-variant:small-caps;
+font-family: 'Roboto Slab', serif;
+  font-size: 1.8em;
   color: white;
+}
+
+.channelButton {
+  text-decoration: none;
+  font-variant:small-caps;
+  font-family: 'Roboto Slab', serif;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #000000;
+  padding: 5px;
+  margin-bottom: 5px;
+  font-size: .75em;
+  cursor: pointer;
+}
+
+.channelButton:hover {
+  text-decoration: none;
+  font-variant:small-caps;
+  font-family: 'Roboto Slab', serif;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #000000;
+  padding: 5px;
+  margin-bottom: 5px;
+  font-size: .75em;
+  cursor: pointer;
+  background: black;
+}
+
+.textInput {
+  box-shadow: 5px 5px 5px #000000;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.submitButton {
+  text-decoration: none;
+  font-variant:small-caps;
+  font-family: 'Roboto Slab', serif;
+  box-shadow: 5px 5px 5px #000000;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  display: flex;
+  height: 30px;
+  width: 75px;
+  font-size: 1.5em;
+  margin-top: 10px;
 }

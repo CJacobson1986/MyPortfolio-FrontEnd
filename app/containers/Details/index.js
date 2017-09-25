@@ -16,6 +16,7 @@ import FaGroup from 'react-icons/lib/fa/group';
 import FaSearch from 'react-icons/lib/fa/search';
 import FaSignIn from 'react-icons/lib/fa/sign-in';
 import FaPlus from 'react-icons/lib/fa/plus';
+import FaBullhorn from 'react-icons/lib/fa/bullhorn';
 import Drawer from 'components/Drawer';
 import SignIn from 'components/SignIn';
 import SignUp from 'components/SignUp';
@@ -36,6 +37,7 @@ export default class Details extends React.PureComponent {
   }
 
   getDetail = () => {
+    let _this=this;
     fetch('http://localhost:8000/api/getDetail/'+this.props.params.slug, {
       method:'Get'
     })
@@ -43,7 +45,7 @@ export default class Details extends React.PureComponent {
       return response.json();
     })
     .then(function(json) {
-      this.setState({
+      _this.setState({
         details:json.topic,
         detailUser:json.user
       })
@@ -72,7 +74,7 @@ export default class Details extends React.PureComponent {
 
         <div className="siteTitle">
           <FaGroup/>
-          <header>Topic Details
+          <header>Event Details
           </header>
         </div>
 
@@ -122,14 +124,18 @@ export default class Details extends React.PureComponent {
         </navBar>
 
         <div className="topicBody">
+          <p><img src={this.state.detailUser.avatar} className="avatar"/></p>
           <p>Author:{this.state.detailUser.name}</p>
           <p>Channel:{this.state.details.channelTitle}</p>
-          <p>Topic Title:{this.state.details.topicTitle}</p>
-          <p>Topic Body:{this.state.details.topicBody}</p>
+          <p>Event:{this.state.details.topicTitle}</p>
+          <p>Description:{this.state.details.topicBody}</p>
           <p>Replies:{this.state.details.topicReplies}</p>
           <p>Views:{this.state.details.topicViews}</p>
-          <p><img src={this.state.detailUser.avatar} className="avatar"/></p>
         </div>
+
+        <Link className="replyButton" to={'/Replies/'+this.state.details.topicSlug}>
+          <FaBullhorn/>Comments
+        </Link>
       </div>
     );
   }
