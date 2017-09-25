@@ -133,7 +133,7 @@ export default class Details extends React.PureComponent {
           <p>Views:{this.state.details.topicViews}</p>
         </div>
 
-        <Link className="replyButton" to={'/Replies/'+this.state.details.topicSlug}>
+        <Link className="replyButton" to={'/Replies/'+this.state.details.topicSlug+'/'+this.state.details.id} topicid={this.props.topicid}>
           <FaBullhorn/>Comments
         </Link>
       </div>

@@ -31,46 +31,15 @@
 .TopicTitles {
 font-variant:small-caps;
 font-family: 'Roboto Slab', serif;
-  font-size: 1.8em;
-  color: white;
+font-size: 1.8em;
+color: white;
 }
 
-.channelButton {
-  text-decoration: none;
+.channelList {
   font-variant:small-caps;
   font-family: 'Roboto Slab', serif;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  border-radius: 5px;
-  box-shadow: 5px 5px 5px #000000;
-  padding: 5px;
-  margin-bottom: 5px;
   font-size: .75em;
-  cursor: pointer;
-}
-
-.channelButton:hover {
-  text-decoration: none;
-  font-variant:small-caps;
-  font-family: 'Roboto Slab', serif;
   color: white;
-  display: flex;
-  flex-direction: column;
-  border-radius: 5px;
-  box-shadow: 5px 5px 5px #000000;
-  padding: 5px;
-  margin-bottom: 5px;
-  font-size: .75em;
-  cursor: pointer;
-  background: black;
-}
-
-.textInput {
-  box-shadow: 5px 5px 5px #000000;
-  border-radius: 5px;
-  padding: 5px;
-  margin-bottom: 5px;
 }
 
 .submitButton {
@@ -79,10 +48,29 @@ font-family: 'Roboto Slab', serif;
   font-family: 'Roboto Slab', serif;
   box-shadow: 5px 5px 5px #000000;
   border-radius: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
   display: flex;
   height: 30px;
-  width: 75px;
-  font-size: 1.5em;
+  width: auto;
+  font-size: 1.2em;
   margin-top: 10px;
+  align-content: center;
+  margin-left: 70px;
+}
+
+.textInput {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 5px 5px 5px #000000;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.notification {
+  font-variant:small-caps;
+  font-family: 'Roboto Slab', serif;
+  font-size: 1.5em;
+  color: white;
 }

@@ -21,9 +21,13 @@
  import SignUp from 'components/SignUp';
 
 export default class Replies extends React.PureComponent {
-  constructor () {
-    super();
+  constructor (props) {
+    super(props);
     this.state = {
+      detailReply:[],
+      openSignUp:false,
+      openSignIn:false,
+      inputComment:""
     }
   };
 
@@ -41,20 +45,35 @@ export default class Replies extends React.PureComponent {
     })
     .then(function(json) {
       _this.setState({
-        detailReply:json.replies,
-        detailData:json.data
+        detailReply:json.replies.data
       })
-    }.bind(this))
+    }.bind(this));
   };
+
+
+  handleLogIn = () => {
+    this.setState({
+      openSignIn: !this.state.openSignIn,
+      openSignUp: false
+    })
+  }
+
+  handleSignUp = () => {
+    this.setState({
+      openSignUp:!this.state.openSignUp,
+      openSignIn: false
+    })
+  }
 
   storeReply = () => {
     let data = new FormData;
     let _this = this;
-    data.append('topicID', this.state.inputItemEmail);
-    data.append('username', this.state.inputItemUser);
+    data.append('topicID', this.props.params.id);
+    data.append('replyBody', this.state.inputComment);
     fetch('http://localhost:8000/api/storeReply', {
       method:'POST',
-      body:data
+      body:data,
+      headers:{"Authorization":"Bearer "+ sessionStorage.getItem('token')}
     })
     .then(function(response) {
       return response.json();
@@ -62,12 +81,26 @@ export default class Replies extends React.PureComponent {
     .then(function(json) {
       _this.setState({
         notification: json.message
+      }, function(){
+        this.setState({
+          inputComment:""
+        })
+        this.getReplies();
       })
     })
-      this.forceUpdate();
+      // this.forceUpdate();
   };
 
+  handleEnter = (event) => {
+    if (event.keyCode === 13)
+    this.storeReply();
+  };
 
+  handleComment = (event) => {
+    this.setState({
+      inputComment: event.target.value
+    })
+  };
 
   render() {
     return (
@@ -106,12 +139,36 @@ export default class Replies extends React.PureComponent {
             </header>
           </Link>
 
+          <div className="navButtons" onClick={this.handleLogIn}>
+            <FaSignIn/>
+            <header>SignIn
+            </header>
+          </div>
+
+          <SignIn open={this.state.openSignIn} onClose={this.handleLogIn}>
+            </SignIn>
+
+            <div className="navButtons" onClick={this.handleSignUp}>
+              <FaSignIn/>
+              <header>SignUp
+              </header>
+          </div>
+
+            <SignUp open={this.state.openSignUp} onClose={this.handleSignUp}>
+            </SignUp>
+
 
         </navBar>
 
         <div className="topicReplies">
-          <p>{this.state.detailData}</p>
-          <p>{this.state.detailReply}</p>
+        <header className="topicTitle">Comments:</header>
+        {this.state.detailReply.map((t, i) => (
+          <div className="topicItems" key={i}><img src={t.avatar} className="avatar"/>{t.name}:{t.replyBody}</div>
+        ))}
+        </div>
+        <div className="commentBox">
+          <input type="text" className="commentInput" onChange={this.handleComment} placeholder="Enter Comments Here" value={this.state.inputComment}/>
+          <input type="submit" className="submitButtonFour" value="submit" onClick={this.storeReply}/>
         </div>
       </div>
     );

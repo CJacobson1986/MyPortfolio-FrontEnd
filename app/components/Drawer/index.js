@@ -15,6 +15,11 @@ export default class Drawer extends React.PureComponent {
     super(props);
     this.state={
       channels:[],
+      inputTitle:[],
+      inputChannel:[],
+      inputBody:[],
+      notification:"",
+      token:sessionStorage.getItem("token")
     }
   }
 
@@ -23,7 +28,7 @@ export default class Drawer extends React.PureComponent {
   };
 
   storeTopic = () => {
-    let data = new FormData;
+    let data = new FormData();
     let _this = this;
     data.append('topicTitle', this.state.inputTitle);
     data.append('topicChannel', this.state.inputChannel);
@@ -31,12 +36,14 @@ export default class Drawer extends React.PureComponent {
 
     fetch('http://localhost:8000/api/storeTopic', {
       method:'POST',
-      body:data
+      body:data,
+      headers:{"Authorization":"Bearer "+ sessionStorage.getItem('token')}
     })
     .then(function(response) {
       return response.json();
     })
     .then(function(json) {
+      _this.props.updateTopics(json);
       _this.setState({
         notification: json.message
       })
@@ -59,19 +66,24 @@ export default class Drawer extends React.PureComponent {
     }.bind(this))
   };
 
+  handleEnter = (event) => {
+    if (event.keyCode === 13)
+    this.storeTopic();
+  };
+
   handleItemTitle = (event) => {
     this.setState({
-      inputItemTitle: event.target.value
+      inputTitle: event.target.value
     })
   };
   handleItemChannel = (event) => {
     this.setState({
-      inputItemChannel: event.target.id
+      inputChannel: event.target.value
     })
   };
   handleItemBody = (event) => {
     this.setState({
-      inputItemBody: event.target.value
+      inputBody: event.target.value
     })
   };
 
@@ -91,18 +103,21 @@ export default class Drawer extends React.PureComponent {
                 <header>Channel List:
                 </header>
                 {this.state.channels.map((t, i) => (
-                  <div key={i} className="channelButton" onClick={this.handleItemChannel}> {t.channelTitle} </div>
+                  <div key={i} className="channelList" onClick={this.handleItemChannel} onClick={this.storeTopic}> {t.channelTitle} ID: {t.id}
+                  </div>
                 ))
                 }
               </div>
+              <div style={this.props.style}>
+                {this.props.children}
+              </div>
+              <input type="text" className="textInput" onChange={this.handleItemChannel} placeholder="Channel ID"/>
+              <input type="text" className="textInput" onChange={this.handleItemTitle} placeholder="New Event"/>
+              <input type="text" className="textInput" onChange={this.handleItemBody} placeholder="Event Description"/>
+              <input type="submit" className="submitButton" value="submit" onClick={this.storeTopic}/>
+              <div className="notification"> {this.state.notification}
+              </div>
             </div>
-            <div style={this.props.style}>
-              {this.props.children}
-            </div>
-            <input type="text" className="textInput" onChange={this.handleItemTitle} placeholder="New Event"/>
-            <input type="text" className="textInput" onChange={this.handleItemBody} placeholder="Event Description"/>
-            <input type="submit" className="submitButton" value="submit" onClick={this.storeTopic}/>
-            <div className="notification"> {this.state.notification} </div>
           </div>
         </div>
       );
@@ -116,7 +131,8 @@ export default class Drawer extends React.PureComponent {
     }
     else {
       return (
-        <div className="renuiDrawerOverlayHidden"></div>
+        <div className="renuiDrawerOverlayHidden">
+        </div>
       );
     }
   }

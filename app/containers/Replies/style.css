@@ -67,6 +67,10 @@ margin: 0 auto;
   background: black;
 }
 
+.topicTitle {
+  font-size: 1.5em;
+}
+
 .topicReplies {
   display: flex;
   flex-direction: column;
@@ -75,11 +79,16 @@ margin: 0 auto;
   border-radius: 5px;
   font-variant:small-caps;
   font-family: 'Roboto Slab', serif;
-  font-size: 2em;
+  font-size: 1.5em;
   color: white;
   box-shadow: 5px 5px 5px #000000;
   cursor:pointer;
   background: grey;
+}
+
+.topicItems {
+  display: flex;
+  flex-direction: row;
 }
 
 .avatar {
@@ -89,4 +98,41 @@ margin: 0 auto;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+}
+
+.commentBox {
+  display: flex;
+  flex-direction: column;
+  top:0;
+  left:0;
+  background: grey;
+  min-height:auto;
+  width:30vw;
+  border-radius:5px;
+  box-shadow: 5px 5px 5px #000000;
+  padding:15px;
+  color: white;
+  align-items: center;
+  z-index: 100;
+}
+
+.commentInput {
+  box-shadow: 5px 5px 5px #000000;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.submitButtonFour {
+    text-decoration: none;
+    font-variant:small-caps;
+    font-family: 'Roboto Slab', serif;
+    box-shadow: 5px 5px 5px #000000;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    height: 30px;
+    width: 60px;
+    font-size: 1.2em;
+    margin-top: 10px;
 }

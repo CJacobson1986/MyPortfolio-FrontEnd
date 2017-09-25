@@ -99,6 +99,11 @@ margin: 0 auto;
   padding: 5px;
   margin-bottom: 5px;
   font-size: .75em;
+  background: #373344;
+}
+
+.links:hover {
+  background: black;
 }
 
 .fullOverlayTwo {

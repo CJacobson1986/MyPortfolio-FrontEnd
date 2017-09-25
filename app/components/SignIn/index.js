@@ -35,9 +35,15 @@ export default class SignIn extends React.PureComponent {
       return response.json();
     })
     .then(function(json) {
-      _this.setState({
-        notification: json.message
-      })
+      if(json.error) {
+        alert(json.error);
+      }
+      else {
+        _this.setState({
+          notification: json.message
+        })
+        sessionStorage.setItem('token', json.token);
+      }
     })
       this.forceUpdate();
   };

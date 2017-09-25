@@ -30,7 +30,7 @@ export default class ForumPage extends React.PureComponent {
       openBottomDrawer:false,
       openSignUp:false,
       openSignIn:false,
-      admin: 1
+      admin: 2
     }
   };
 
@@ -45,6 +45,7 @@ export default class ForumPage extends React.PureComponent {
   };
 
   getTopics = () => {
+    let _this = this;
     fetch('http://localhost:8000/api/getTopics/channel=0&count=25', {
       method:'Get'
     })
@@ -52,7 +53,7 @@ export default class ForumPage extends React.PureComponent {
       return response.json();
     })
     .then(function(json) {
-      this.setState({
+      _this.setState({
         topics:json.data
       })
     }.bind(this))
@@ -70,6 +71,16 @@ export default class ForumPage extends React.PureComponent {
       openSignUp:!this.state.openSignUp,
       openSignIn: false
     })
+  }
+
+  updateTopics = (newTopic) => {
+    let topics = this.state.topics;
+    topics.push(newTopic);
+    this.setState({
+      topics:topics
+    })
+    this.forceUpdate();
+    this.getTopics();
   }
 
 render() {
@@ -102,7 +113,7 @@ render() {
 
           <a onClick={this.handleBottomDrawer} className="navButtons">
             <FaPlus/>
-            NewTopic
+            NewEvents
           </a>
 
           <Link className="navButtons" to="/Channels">
@@ -142,7 +153,7 @@ render() {
             </SignUp>
         </navBar>
 
-        <Drawer open={this.state.openBottomDrawer} onClose={this.handleBottomDrawer}>
+        <Drawer open={this.state.openBottomDrawer} onClose={this.handleBottomDrawer} updateTopics={this.updateTopics}>
         </Drawer>
         <div className="topicEntries">
           <header>Events:</header>

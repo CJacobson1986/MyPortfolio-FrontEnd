@@ -73,7 +73,7 @@ export default function createRoutes() {
     },
   },
   {
-   path: '/Replies/:slug',
+   path: '/Replies/:slug/:id',
    name: 'replies',
    getComponent(nextState, comMod) {
      import('containers/Replies')
