@@ -24,7 +24,8 @@ export default class Search extends React.PureComponent {
     this.state = {
       openSignUp:false,
       openSignIn:false,
-      result:[]
+      result:[],
+      taskContent:""
     }
   };
 
@@ -33,26 +34,26 @@ export default class Search extends React.PureComponent {
       openSignIn: !this.state.openSignIn,
       openSignUp: false
     })
-  }
-
-  handleItem = (event) => {
-    let searchContent = event.target.value[0];
-    this.setState({
-      result:{}
-    })
   };
+
 
   handleSignUp = () => {
     this.setState({
       openSignUp:!this.state.openSignUp,
       openSignIn: false
     })
-  }
+  };
 
   handleEnter = (event) => {
     if (event.keyCode === 13)
     this.searchContent();
   };
+
+  handleContent = (event) => {
+    this.setState({
+      taskContent: event.target.value
+    })
+  }
 
   searchContent = () => {
     let data = new FormData();
@@ -129,12 +130,14 @@ export default class Search extends React.PureComponent {
             </SignUp>
         </navBar>
 
-        <input type="text" className="searchContentInput" placeholder="Topic Title" onKeyDown={this.handleEnter} value={this.state.inputItem}/>
+        <input type="text" className="searchContentInput" placeholder="Topic Title" onKeyDown={this.handleEnter} value={this.state.taskContent} onChange={this.handleContent}/>
 
         <input type="submit" className="submitButton" onClick={this.searchContent}/>
 
         <div className="searchResults">
-        Topic Title:{this.state.result.topicTitle}
+        Topic Title:  {this.state.result.map((t, i) => (
+          <Link className="links" key={i} to={'/Details/'+t.topicSlug}>{t.topicTitle}</Link>
+          ))}
         </div>
       </div>
     );

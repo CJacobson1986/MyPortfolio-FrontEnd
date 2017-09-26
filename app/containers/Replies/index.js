@@ -163,7 +163,7 @@ export default class Replies extends React.PureComponent {
         <div className="topicReplies">
         <header className="topicTitle">Comments:</header>
         {this.state.detailReply.map((t, i) => (
-          <div className="topicItems" key={i}><img src={t.avatar} className="avatar"/>{t.name}:{t.replyBody}</div>
+          <div className="topicItems" key={i}>{t.name}:{t.replyBody}</div>
         ))}
         </div>
         <div className="commentBox">

@@ -47,6 +47,7 @@ export default class Drawer extends React.PureComponent {
       _this.setState({
         notification: json.message
       })
+      _this.props.onClose();
     })
     this.forceUpdate();
   };

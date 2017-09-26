@@ -4,7 +4,7 @@
   display:flex;
   flex-direction:column;
   min-height:100vh;
-  background: #373344;
+  background: #214E34;
   align-items: center;
   z-index:0;
 }
@@ -14,7 +14,7 @@ display: flex;
 flex-direction: row;
 height: 10vh;
 width: 80%;
-color: white;
+color: black;
 justify-content: center;
 font-variant:small-caps;
 font-family: 'Roboto Slab', serif;
@@ -33,9 +33,9 @@ margin: 0 auto;
   font-variant:small-caps;
   font-family: 'Roboto Slab', serif;
   font-size: 1.5em;
-  color: white;
+  color: black;
   box-shadow: 5px 5px 5px #000000;
-  background: grey;
+  background: #f49716;
   text-decoration: none;
   cursor: default;
 }
@@ -49,10 +49,10 @@ margin: 0 auto;
   font-variant:small-caps;
   font-family: 'Roboto Slab', serif;
   font-size: auto;
-  color: white;
+  color: black;
   box-shadow: 5px 5px 5px #000000;
   cursor:pointer;
-  background: grey;
+  background: #f49716;
   text-decoration: none;
   z-index: 10;
 }
@@ -64,7 +64,7 @@ margin: 0 auto;
   font-variant:small-caps;
   font-family: 'Roboto Slab', serif;
   font-size: auto;
-  background: black;
+  background: #c47911;
 }
 
 .topicEntries {
@@ -76,10 +76,10 @@ margin: 0 auto;
   font-variant:small-caps;
   font-family: 'Roboto Slab', serif;
   font-size: 2em;
-  color: white;
+  color: black;
   box-shadow: 5px 5px 5px #000000;
   cursor:pointer;
-  background: grey;
+  background: #f49716;
 }
 
 .fullOverlayTwo {
@@ -117,8 +117,8 @@ margin: 0 auto;
   font-variant:small-caps;
   font-family: 'Roboto Slab', serif;
   font-size: 2em;
-  color: white;
+  color: black;
   box-shadow: 5px 5px 5px #00000;
   cursor:pointer;
-  background: grey;
+  background: #f49716;
 }

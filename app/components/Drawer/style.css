@@ -13,17 +13,17 @@
 .renuiDrawerContainer {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  align-items: center;
+  width: 30%;
   height: auto;
-  position: absolute;
+  position: fixed;
   border-radius: 5px;
   left: 0;
   bottom: 0;
-  margin-left:25%;
-  align-items: center;
-  background: grey;
+  margin-left: 35%;
+  background: #a5660e;
   z-index: 29;
-  margin-bottom: 5%;
+  margin-bottom: 15px;
   animation-name: fadeIn;
   animation-duration: 2000ms;
 }
@@ -32,30 +32,27 @@
 font-variant:small-caps;
 font-family: 'Roboto Slab', serif;
 font-size: 1.8em;
-color: white;
+color: black;
 }
 
 .channelList {
   font-variant:small-caps;
   font-family: 'Roboto Slab', serif;
   font-size: .75em;
-  color: white;
+  color: black;
 }
 
 .submitButton {
-  text-decoration: none;
   font-variant:small-caps;
   font-family: 'Roboto Slab', serif;
   box-shadow: 5px 5px 5px #000000;
   border-radius: 5px;
-  margin-bottom: 15px;
-  display: flex;
-  height: 30px;
-  width: auto;
+  margin-bottom: 5px;
+  margin-left: 55px;
+  height: 25px;
+  width: 75px;
   font-size: 1.2em;
-  margin-top: 10px;
-  align-content: center;
-  margin-left: 70px;
+  background: #f49716;
 }
 
 .textInput {
@@ -63,6 +60,7 @@ color: white;
   flex-direction: column;
   box-shadow: 5px 5px 5px #000000;
   border-radius: 5px;
+  height: inherit;
   padding: 5px;
   margin-top: 5px;
   margin-bottom: 5px;
