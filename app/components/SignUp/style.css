@@ -45,7 +45,7 @@
   width:40vw;
   z-index:99;
   border-radius:5px;
-  box-shadow:0px 0px 10px 0px rgba(0, 0, 0, 0.6);
+  box-shadow: 5px 5px 5px #000000;
   padding:15px;
   color: black;
   animation-name: fadeIn;

@@ -130,12 +130,12 @@ export default class Search extends React.PureComponent {
             </SignUp>
         </navBar>
 
-        <input type="text" className="searchContentInput" placeholder="Topic Title" onKeyDown={this.handleEnter} value={this.state.taskContent} onChange={this.handleContent}/>
+        <input type="text" className="searchContentInput" placeholder="Event Title" onKeyDown={this.handleEnter} value={this.state.taskContent} onChange={this.handleContent}/>
 
         <input type="submit" className="submitButton" onClick={this.searchContent}/>
 
         <div className="searchResults">
-        Topic Title:  {this.state.result.map((t, i) => (
+        Event Title:  {this.state.result.map((t, i) => (
           <Link className="links" key={i} to={'/Details/'+t.topicSlug}>{t.topicTitle}</Link>
           ))}
         </div>

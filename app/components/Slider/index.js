@@ -63,7 +63,7 @@ export default class Slider extends React.PureComponent {
   clearInterval(this.state.theInterval);
   let interval = setInterval(function() {
     _this.nextImage();
-  }, 12000);
+  }, 10000);
   this.setState({
     theInterval: interval,
   })

@@ -121,7 +121,7 @@
 
          <div className="listChannels">
           {this.state.channels.map((t, i) => (
-           <div key={i}> {t.channelTitle}
+           <div key={i}> Channel Title: {t.channelTitle}
            <p>{t.channelDesc}</p>
            </div>
          ))}

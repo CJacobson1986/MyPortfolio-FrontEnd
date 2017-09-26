@@ -82,7 +82,7 @@ export default class SignUp extends React.PureComponent {
             <header>Please fill out all fields</header>
               <input type="text" className="textInputThree" onChange={this.handleItemUser} placeholder="Username"/>
               <input type="text" className="textInputThree" onChange={this.handleItemEmail} placeholder="Email"/>
-              <input type="text" className="textInputThree" onChange={this.handleItemPass} placeholder="Password"/>
+              <input type="password" className="textInputThree" onChange={this.handleItemPass} placeholder="Password"/>
               <input type="text" className="textInputThree" onChange={this.handleItemName} placeholder="Full Name"/>
               <input type="submit" className="submitButtonThree" value="submit" onClick={this.doSignUp}/>
               <div className="notification"> {this.state.notification} </div>

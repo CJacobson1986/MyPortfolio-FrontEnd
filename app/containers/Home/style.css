@@ -10,7 +10,7 @@
 .VerticalOverlay {
   display:flex;
   flex-direction:column;
-  background: #0e1b4c;
+  background: #26525f;
   width:60vw;
   justify-content:space-between;
   align-items:center;
@@ -27,11 +27,12 @@
 }
 
 .Author {
-font-size: 2em;
-font-family: 'Rock Salt', cursive;
+font-size: 4em;
+font-variant:small-caps;
+font-family: 'Amatic SC', cursive;
 }
 
 .siteDesc {
-  font-family: 'Amatic SC', cursive;
-  font-size: 1.6em;
+font-family: 'Roboto Slab', serif;
+font-size: 1.6em;
 }

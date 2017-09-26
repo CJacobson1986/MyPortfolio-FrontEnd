@@ -26,6 +26,7 @@
   margin-bottom: 15px;
   animation-name: fadeIn;
   animation-duration: 2000ms;
+  box-shadow: 5px 5px 5px #000000;
 }
 
 .TopicTitles {

@@ -98,6 +98,7 @@ margin: 0 auto;
   height: auto;
   font-size: 1.5em;
   margin-top: 30px;
+  border-radius: 5px;
   box-shadow: 5px 5px 5px #000000;
 }
 
@@ -105,6 +106,7 @@ margin: 0 auto;
   margin-top: 15px;
   height: 5vh;
   width: 10%;
+  border-radius: 5px;
   box-shadow: 5px 5px 5px #000000;
 }
 
@@ -118,7 +120,7 @@ margin: 0 auto;
   font-family: 'Roboto Slab', serif;
   font-size: 2em;
   color: black;
-  box-shadow: 5px 5px 5px #00000;
+  box-shadow: 5px 5px 5px #000000;
   cursor:pointer;
   background: #f49716;
 }

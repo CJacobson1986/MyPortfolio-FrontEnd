@@ -75,7 +75,7 @@ export default class SignIn extends React.PureComponent {
             <div className="renuiDialogTwo">
               <h>Please enter your email and password</h>
               <input type="text" className="textInputTwo" onChange={this.handleItemEmail} placeholder="Email"/>
-              <input type="text" className="textInputTwo" onChange={this.handleItemPass} placeholder="Password"/>
+              <input type="passwprd" className="textInputTwo" onChange={this.handleItemPass} placeholder="Password"/>
               <input type="submit" className="submitButtonTwo" value="submit" onClick={this.authenticate}/>
               <div className="notification"> {this.state.notification} </div>
             </div>

@@ -83,10 +83,10 @@ margin: 0 auto;
   width: auto;
   background: #f49716;
   color: black;
-  align-content: center;
   padding: 15px;
   box-shadow: 5px 5px 5px #000000;
   border-radius: 5px;
   font-variant:small-caps;
   font-family: 'Roboto Slab', serif;
+  align-items: center;
 }
